@@ -31,7 +31,13 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         case AVAudioSessionRecordPermission.denied:
             permission = false
         case AVAudioSessionRecordPermission.undetermined:
-            permission = false
+            AVAudioSession.sharedInstance().requestRecordPermission({ (granted) in
+                if granted {
+                    permission = true
+                } else {
+                    permission = false
+                }
+            })
         default:
             break
         }
@@ -58,8 +64,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder.prepareToRecord()
         audioRecorder.record()
         }else {
-            print("Mic permission not granted")
-            
+            showAlert(Alerts.RecordingDisabledTitle, message: Alerts.RecordingDisabledMessage, viewController: self)
+
         }
     }
     
