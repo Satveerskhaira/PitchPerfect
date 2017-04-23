@@ -18,11 +18,12 @@ class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var echoButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     
-    var audioFile: AVAudioFile!
-    var audioEngine : AVAudioEngine!
-    var audioPlayerNode : AVAudioPlayerNode!
+    var audioFile: AVAudioFile!  //Variable of type AVAudioFile class
+    var audioEngine : AVAudioEngine! // Variable of type AVAudioEngine to access node and change sound pitch
+    var audioPlayerNode : AVAudioPlayerNode! // Variable of type AVAudioPlayeNode to set different sound pitch
     var stopTimer : Timer!
     
+    // MARK: ENUM to access tag value of different button
     enum ButtonType :Int {
         case slow = 0, fast, chimpunk, vader, echo, reverb
     }
@@ -46,6 +47,7 @@ class PlaySoundsViewController: UIViewController {
         configureUI(.playing)
     }
     
+    // MARK: stopButtonPressed method to stop playing sound
     @IBAction func stopButtonPressed(_ sender:UIButton){
         stopAudio()
     }

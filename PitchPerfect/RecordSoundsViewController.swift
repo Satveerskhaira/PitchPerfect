@@ -9,8 +9,8 @@
 import UIKit
 import AVFoundation
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
-
-    var audioRecorder : AVAudioRecorder!
+    
+    var audioRecorder : AVAudioRecorder!  //Create variable of type AVAudioRecoder
     
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var recordingButton: UIButton!
@@ -22,7 +22,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     
-
+    // MARK: recordAudio method
     @IBAction func recordAudio(_ sender: Any) {
         recordingLabel.text = "Recording in progress"
         recordingButton.isEnabled = false
@@ -45,7 +45,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder.record()
     }
     
-    
+    // MARK: stopRecoding method
     @IBAction func stopRecording(_ sender: Any) {
         recordingButton.isEnabled = true
         stopRecordingButton.isEnabled = false
@@ -55,7 +55,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         try! audioSession.setActive(false)
     }
     
-    //AVAudioRecorderDelegate method implementation
+    // MARK: AVAudioRecorderDelegate method implementation
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag == true {
             performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
@@ -63,12 +63,10 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             print("Recording failed")
         }
     }
-    
+    // MARK: Prepare segue to navigate to PlaySoundsViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "stopRecording" {
             let playSoundsVC = segue.destination as! PlaySoundsViewController
-            //let recordedAudioURL = sender as! URL
-            //playSoundsVC.recordedAudioURL = recordedAudioURL
             playSoundsVC.recordedAudioURL = audioRecorder.url
         }
     }
