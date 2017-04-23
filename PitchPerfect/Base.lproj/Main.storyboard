@@ -80,7 +80,7 @@
             </objects>
             <point key="canvasLocation" x="1274.4000000000001" y="171.36431784107947"/>
         </scene>
-        <!--Play Sounds View Controller-->
+        <!--Funny Sounds-->
         <scene sceneID="EC4-6d-jUA">
             <objects>
                 <viewController id="13J-Rh-fTz" customClass="PlaySoundsViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
@@ -152,7 +152,7 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53I-PR-MPm">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="53I-PR-MPm">
                                         <rect key="frame" x="0.0" y="378" width="288" height="126"/>
                                         <subviews>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlN-Y0-0Rr" userLabel="StopButton">
@@ -166,13 +166,6 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Funny Sound" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mi-Ni-kfu">
-                                <rect key="frame" x="110" y="35" width="101" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -182,6 +175,7 @@
                             <constraint firstItem="w3K-VG-zza" firstAttribute="top" secondItem="VhJ-VM-pK6" secondAttribute="bottom" id="y4Q-py-SoT"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Funny Sounds" id="pTH-qA-63z"/>
                     <connections>
                         <outlet property="chipmunkButton" destination="AH9-W2-dHM" id="oOm-hh-2We"/>
                         <outlet property="darthVaderButton" destination="o7q-NY-pGU" id="GqP-1c-zEk"/>

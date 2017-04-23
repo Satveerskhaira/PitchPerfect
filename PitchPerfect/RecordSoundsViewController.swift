@@ -24,6 +24,20 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     // MARK: recordAudio method
     @IBAction func recordAudio(_ sender: Any) {
+        var permission = false
+        switch AVAudioSession.sharedInstance().recordPermission() {
+        case AVAudioSessionRecordPermission.granted:
+            permission = true
+        case AVAudioSessionRecordPermission.denied:
+            permission = false
+        case AVAudioSessionRecordPermission.undetermined:
+            permission = false
+        default:
+            break
+        }
+        
+        if permission {
+        
         recordingLabel.text = "Recording in progress"
         recordingButton.isEnabled = false
         stopRecordingButton.isEnabled = true
@@ -43,6 +57,10 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder.isMeteringEnabled = true
         audioRecorder.prepareToRecord()
         audioRecorder.record()
+        }else {
+            print("Mic permission not granted")
+            
+        }
     }
     
     // MARK: stopRecoding method
