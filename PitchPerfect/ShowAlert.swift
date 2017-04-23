@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-// MARK : This file contain Alerts titles, message and showAlerts function
+// MARK : Alerts
 struct Alerts {
     static let DismissAlert = "Dismiss"
     static let RecordingDisabledTitle = "Recording Disabled"
@@ -22,10 +22,11 @@ struct Alerts {
     static let AudioFileError = "Audio File Error"
     static let AudioEngineError = "Audio Engine Error"
 }
+
+// MARK : showAlert function
 func showAlert(_ title: String, message: String, viewController: UIViewController) {
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: Alerts.DismissAlert, style: .default, handler: nil))
-    //presentViewController(alert, animated: true, completion: nil)
     viewController.present(alert, animated: true, completion: nil)
 }
 

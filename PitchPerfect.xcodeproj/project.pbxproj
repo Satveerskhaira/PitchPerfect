@@ -61,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				721058451EA42E0F001DB14B /* AppDelegate.swift */,
+				722AAB1F1EAD15F20092C711 /* ShowAlert.swift */,
 				728A8EEA1EAC0A9700123D40 /* playsoundsviewcontroller-audio.swift */,
 				728A8EE81EAAA3FF00123D40 /* PlaySoundsViewController.swift */,
 				721058471EA42E0F001DB14B /* RecordSoundsViewController.swift */,
@@ -68,7 +69,6 @@
 				7210584C1EA42E0F001DB14B /* Assets.xcassets */,
 				7210584E1EA42E0F001DB14B /* LaunchScreen.storyboard */,
 				721058511EA42E0F001DB14B /* Info.plist */,
-				722AAB1F1EAD15F20092C711 /* ShowAlert.swift */,
 			);
 			path = PitchPerfect;
 			sourceTree = "<group>";
