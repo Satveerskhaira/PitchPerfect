@@ -45,8 +45,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         if permission {
         
         recordingLabel.text = "Recording in progress"
-        recordingButton.isEnabled = false
-        stopRecordingButton.isEnabled = true
+        setUIStateForRecording(isRecording: true)
+        //recordingButton.isEnabled = false
+        //stopRecordingButton.isEnabled = true
         
         //Start recoring with AVAudioRecorder class
         
@@ -71,8 +72,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     // MARK: stopRecoding method
     @IBAction func stopRecording(_ sender: Any) {
-        recordingButton.isEnabled = true
-        stopRecordingButton.isEnabled = false
+        setUIStateForRecording(isRecording: false)
+        //recordingButton.isEnabled = true
+        //stopRecordingButton.isEnabled = false
         recordingLabel.text = "Tap to Record"
         audioRecorder.stop()
         let audioSession = AVAudioSession.sharedInstance()
@@ -93,6 +95,19 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             let playSoundsVC = segue.destination as! PlaySoundsViewController
             playSoundsVC.recordedAudioURL = audioRecorder.url
         }
+    }
+    
+    // MARK : SetUIStateForRecording
+    func setUIStateForRecording(isRecording: Bool) {
+        // Pass isRecording true when recording start and pass isRecording false when recording stop
+        if isRecording {
+            recordingButton.isEnabled = false
+            stopRecordingButton.isEnabled = true
+        } else {
+            recordingButton.isEnabled = true
+            stopRecordingButton.isEnabled = false
+        }
+        
     }
 }
 
